@@ -1,30 +1,43 @@
-let firstName = prompt("Salom ismingizni yozing");
+let firstName = prompt("Salom ismingizni kiriting")
+let userNumber = prompt("Siz 5 dan katta son kiriting men shuni random qilamn")
+let counter = 0;
+let maxTries = 5;
 
-let compyuterSum = Math.floor(Math.random() * 10 + 1);
+if (userNumber >= 5) {
+    let randomNumber = Math.floor(Math.random() * userNumber + 1);
 
-var guess = 1;
 
-document.getElementById("submitguess").onclick = function () {
+    while (attempts != randomNumber) {
 
-    let peopleSum = document.getElementById("guessField").value;
+        var attempts = prompt(`${firstName} siz 1 dan ${userNumber} bo'lgan sonlarni kiriting`);
 
-    if (firstName == '') {
-        firstName = 'JEK'
-    }
+        counter += 1;
 
-    if (peopleSum == compyuterSum) {
-        alert(`${firstName} sizni tabriklayman topdingiz`);
-    }
-    else if (peopleSum > compyuterSum) {
-        guess++;
-        alert(`${firstName} siz kiritgan raqamingiz katta edi afsus \n Men o'ylagan son ${compyuterSum} edi`);
-    }
-    else if (peopleSum < compyuterSum) {
-        guess++;
-        alert(`${firstName} siz kiritgan raqamingiz kichika edi afsus \n Men o'ylagan son ${compyuterSum} edi`);
-    }
-    else {
-        alert(`${firstName} Xandaydir xatolik bor`)
+        if (counter > maxTries) {
+            alert(`${firstName} siz yutqazdingiz F5  bosib qayta urinib ko'ring`);
+            break
+        }
+
+        if (attempts > randomNumber) {
+            alert(`${firstName} Siz kirtgan soningiz katta`)
+        }
+
+        if (attempts < randomNumber) {
+            alert(`${firstName} Siz kiritgan soningiz kichik`)
+        }
+
+        if (attempts == randomNumber) {
+            alert(`${firstName} men o'ylagan sonni ${counter} ta urinishda topdingiz`)
+        }
     }
 }
+
+else {
+    alert(`${firstName} siz 5 katta son kirtmadingiz`)
+}
+
+
+
+
+
 
