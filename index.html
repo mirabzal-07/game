@@ -1,17 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>JavaSctipt Game</title>
     <link rel="stylesheet" href="./css/main.css">
-    <title>Game</title>
 </head>
 
 <body>
-    <h2>Siz agar yana o'ynamoqchi bo'lsangiz F5 tugmasini bosing</h2>
-    <script src="./js/index.js"></script>
+    <div class="alert">
+        <div class="alert-text"></div>
+    </div>
+    <div class="container">
+        <form name="form">
+            <div class="display">
+                <input type="text" placeholder="0" value="" name="displayResult" class="displayResult" />
+            </div>
+            <div class="buttons">
+                <div class="row">
+                    <input class="input" type="button" name="b7" value="7">
+                    <input class="input" type="button" name="b8" value="8">
+                    <input class="input" type="button" name="b9" value="9">
+                </div>
+
+                <div class="row">
+                    <input class="input" type="button" name="b4" value="4">
+                    <input class="input" type="button" name="b5" value="5">
+                    <input class="input" type="button" name="b6" value="6">
+                </div>
+
+                <div class="row">
+                    <input class="input" type="button" name="b1" value="1">
+                    <input class="input" type="button" name="b2" value="2">
+                    <input class="input" type="button" name="b3" value="3">
+                </div>
+
+                <div class="row">
+                    <input class="input" type="button" name="b0" value="0">
+                    <input type="button" name="potb" value="OK" class="ok">
+                </div>
+            </div>
+
+        </form>
+    </div>
 </body>
+
+<script src="./js/index.js"></script>
 
 </html>

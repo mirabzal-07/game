@@ -1,40 +1,57 @@
-let firstName = prompt("Salom ismingizni kiriting")
-let userNumber = prompt("Siz 5 dan katta son kiriting men shuni random qilamn")
-let counter = 0;
-let maxTries = 5;
+const body = document
+const inputs = document.querySelectorAll(".input")
+const displayInput = document.querySelector(".displayResult")
+const ok = document.querySelector(".ok")
+const alertDiv = document.querySelector(".alert")
+const alertText = document.querySelector(".alert-text")
+let randomNumber = Math.floor(Math.random() * 100 + 1);
 
-if (userNumber >= 5) {
-    let randomNumber = Math.floor(Math.random() * userNumber + 1);
+let count = 0
+for (let input of inputs) {
+    input.addEventListener("click", () => {
+        displayInput.value += input.value
+    })
+}
 
+setInterval(() => {
+    alertDiv.classList.remove("active");
+}, 5000)
 
-    while (attempts != randomNumber) {
-
-        var attempts = prompt(`${firstName} siz 1 dan ${userNumber} bo'lgan sonlarni kiriting`);
-
-        counter += 1;
-
-        if (counter > maxTries) {
-            alert(`${firstName} siz yutqazdingiz F5  bosib qayta urinib ko'ring`);
-            break
+ok.addEventListener("click", () => {
+    if (count != 3) {
+        count = count + 1
+        if (displayInput.value == randomNumber) {
+            alertDiv.classList.add('active')
+            alertText.innerText = "Siz Yutdingiz"
+            alertDiv.style.background = "#00C851"
+            setInterval(() => {
+                body.location.reload(true);
+            }, 2000)
         }
 
-        if (attempts > randomNumber) {
-            alert(`${firstName} Siz kirtgan soningiz katta`)
+        if (displayInput.value > randomNumber) {
+            alertDiv.classList.add('active')
+            alertText.innerText = "Siz kiritgan son katta"
+            alertDiv.style.background = "#ffbb33"
         }
 
-        if (attempts < randomNumber) {
-            alert(`${firstName} Siz kiritgan soningiz kichik`)
+        if (displayInput.value < randomNumber) {
+            alertDiv.classList.add('active')
+            alertText.innerText = "Siz kiritgan son kichik"
+            alertDiv.style.background = "#ffbb33"
         }
 
-        if (attempts == randomNumber) {
-            alert(`${firstName} men o'ylagan sonni ${counter} ta urinishda topdingiz`)
+        if (count == 3) {
+            alertDiv.classList.add('active')
+            alertText.innerText = `Siz Yutqazdingiz men o'ylagan son ${randomNumber}`
+            alertDiv.style.background = "#CC0000"
+            setInterval(() => {
+                body.location.reload(true);
+            }, 2000)
         }
+        displayInput.value = ""
     }
-}
-
-else {
-    alert(`${firstName} siz 5 katta son kirtmadingiz`)
-}
+})
 
 
 
